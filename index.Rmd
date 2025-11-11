@@ -1,0 +1,25 @@
+---
+title: ""
+---
+
+<div style="float: left; width: 30%; margin-right: 20px; text-align: center;">
+  <img src="images/photo.png" width="150">
+</div>
+
+<div style="overflow: hidden;">
+
+<br>
+Hello! I am a PhD candidate in Mathematics with a Specialization in Statistics at UC San Diego where I am advised by Ery Arias-Castro. My research interests are in statistics and machine learning and include clustering, embedding, and dimensionality reduction. Previously, I received a bachelor's degree in physics and applied mathematics from UC Berkeley. Before graduate school, I also  worked full-time as a data scientist on methods to produce safer and more robust deep learning models.
+
+<div>
+
+
+<a href="https://scholar.google.com/citations?user=Rt5hMwUAAAAJ&hl=en" target="_blank">
+  <i class="fa fa-graduation-cap"></i> Google Scholar
+</a> | 
+<a href="https://github.com/lizzycoda" target="_blank">
+ <i class="fab fa-github"></i> GitHub
+</a> | 
+<a href="mailto:ecoda@ucsd.edu">
+  <i class="fa fa-envelope"></i> Email
+</a>

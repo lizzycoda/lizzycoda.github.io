@@ -1,0 +1,23 @@
+---
+title: ""
+output: html_document
+---
+
+
+I have previously worked as a TA for the following courses. 
+
+## UC San Diego
+
+* Calculus-Based Introductory Probability and Statistics (Math 11): Spring 2023, Winter 2024
+* Linear Algebra (Math 18): Fall 2022
+* Introduction to Numerical Analysis (Math 170A): Winter 2025 
+* Introduction to Probability (Math 180A): Fall 2025 
+* Statistical Methods (Math 183): Fall 2023, Fall 2024, Spring 2025 
+* Introduction to Computational Statistics (Math 185): Spring 2024 
+* Exploratory Data Analysis and Inference (Math 189): Winter 2023, Summer 2025
+* Applied Statistics (Math 282B):  Winter 2024, Winter 2025 
+
+<br>
+
+## UC Berkeley
+* Probability for Data Science (Statistics 140): Fall 2019, Spring 2020 

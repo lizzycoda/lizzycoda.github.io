@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>research.knit</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Load Font Awesome from CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Lizzy Coda</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="teaching.html">Teaching</a>
+</li>
+<li>
+  <a href="files/cv.pdf">CV</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p><br></p>
+<!-- I maintain a [Google Scholar](https://scholar.google.com/citations?user=Rt5hMwUAAAAJ&hl=en) with my papers and preprints. Below are some highlighted projects. -->
+<div id="recent-work" class="section level2">
+<h2>Recent Work</h2>
+<p>My primary research interests are in theoretical foundations and
+methods for unsupervised machine learning, particularly clustering and
+embedding.</p>
+<div
+style="float: left; width: 30%; margin-right: 20px; text-align: center;">
+<p><img src="images/gms.png" width="200"></p>
+</div>
+<div style="overflow: hidden;">
+<ul>
+<li><p>“Cluster and then Embed: A Modular Approach for Visualization”.
+<strong>E. Coda</strong>, E. Arias-Castro, and G. Mishne. <em>arXiv</em>
+(2025). <a
+href="https://arxiv.org/pdf/2509.03373"><code>[preprint]</code></a> <a
+href="https://github.com/lizzycoda/cluster_embed"><code>[code]</code></a></p></li>
+<li><p>“An Axiomatic Definition of Hierarchical Clustering”. E.
+Arias-Castro and <strong>E. Coda</strong>. <em>Journal of Machine
+Learning Research</em> (2025). <a
+href="https://www.jmlr.org/papers/volume26/24-1052/24-1052.pdf"><code>[paper]</code></a>
+<a
+href="https://today.ucsd.edu/story/new-mathematical-framework-better-illustrates-complex-data-patterns"><code>[article]</code></a></p></li>
+<li><p>“Graph Max Shift: A Hill-Climbing Method for Graph Clustering”.
+E. Arias-Castro, <strong>E. Coda</strong>, and W. Qiao. <em>arXiv</em>
+(2024). <a
+href="https://arxiv.org/pdf/2411.18794"><code>[preprint]</code></a> <a
+href="https://github.com/lizzycoda/GraphMaxShift"><code>[code]</code></a></p></li>
+</ul>
+</div>
+<div style="clear: both;">
+
+</div>
+<p><a href="files/candidacy_slides.pdf">Here</a> are my slides from my
+advancement to candidacy in December 2024, which focused on clustering
+from a statistical perspective.</p>
+<!-- ### Embedding and Dimensionality Reduction -->
+<!-- <div style="float: left; width: 30%; margin-right: 20px; text-align: center;"> -->
+<!--   <img src="images/ce.png" width="200"> -->
+<!-- </div> -->
+<!-- <div style="overflow: hidden;"> -->
+<!-- - "Cluster and then Embed: A Modular Approach for Visualization". **E. Coda**, E. Arias-Castro, and G. Mishne. *arXiv* (2025). [`[preprint]`](https://arxiv.org/pdf/2509.03373) [`[code]`](https://github.com/lizzycoda/cluster_embed) -->
+<!-- </div> -->
+<!-- <div style="clear: both;"></div> -->
+<p><br></p>
+</div>
+<div id="previous-work" class="section level2">
+<h2>Previous Work</h2>
+<p>Prior to UCSD, I was a data scientist at Pacific Northwest National
+Laboratory where I broadly worked on deep learning problems with
+applications including computer vision, materials science, molecular
+property prediction, and radio frequency data.</p>
+<div id="robust-deep-learning" class="section level3">
+<h3>Robust Deep Learning</h3>
+<div
+style="float: left; width: 30%; margin-right: 20px; text-align: center;">
+<p><img src="images/fourier.png" width="200"></p>
+</div>
+<div style="overflow: hidden;">
+<ul>
+<li><p>“Probing the Limits of Mathematical World Models in LLMs”. H.
+Kvinge, <strong>E. Coda</strong>, E. Yeats, D. Brown, J. Buckheit, et
+al. <em>ICML 2025 Workshop on Assessing World Models</em> (2025). <a
+href="https://openreview.net/pdf?id=aMaSHy8IgK"><code>[paper]</code></a></p></li>
+<li><p>“Universal Fourier Attack for Time Series”. <strong>E.
+Coda</strong>, B. Clymer, C. DeSmet, Y. Watkins, and M. Girard. <em>IEEE
+Open Journal of Signal Processing</em> (2024). <a
+href="https://ieeexplore.ieee.org/document/10557789"><code>[paper]</code></a></p></li>
+</ul>
+</div>
+<div style="clear: both;">
+
+</div>
+</div>
+<div
+id="topologically-and-geometrically-informed-approaches-to-machine-learning"
+class="section level3">
+<h3>Topologically and Geometrically Informed Approaches to Machine
+Learning</h3>
+<div
+style="float: left; width: 30%; margin-right: 20px; text-align: center;">
+<p><img src="images/many_to_many.png" width="180"></p>
+</div>
+<!-- Neural network architectures informed by topological structures, to better model data  -->
+<ul>
+<li><p>“Haldane Bundles: A Dataset for Learning to Predict the Chern
+Number of Line Bundles on the Torus”. C. Tipton, <strong>E.
+Coda</strong>, D. Brown, A. Bittner, J. Lee, G. Jorgenson, T. Emerson,
+and H. Kvinge. <em>NeurIPS Workshop on Symmetry and Geometry in Neural
+Representations</em> (2023). <a
+href="https://openreview.net/attachment?id=gt9dDWc6GL&amp;name=pdf"><code>[paper]</code></a>
+<a
+href="https://github.com/shadtome/haldane-bundles"><code>[code]</code></a></p></li>
+<li><p>“Fiber Bundle Morphisms as a Framework for Modeling Many-to-Many
+Maps”. <strong>E. Coda</strong>, N. Courts, C. Wight, L. Truong, W.
+Choi, C. Godfrey, T. Emerson, K. Kappagantula, and H. Kvinge.
+<em>Proceedings of Topological, Algebraic, and Geometric Learning
+Workshops 2022</em> (2022). <a
+href="https://proceedings.mlr.press/v196/coda22a/coda22a.pdf"><code>[paper]</code></a></p></li>
+</ul>
+</div>
+<div style="clear: both;">
+
+</div>
+</div>
+<div id="applications" class="section level3">
+<h3>Applications</h3>
+<div
+style="float: left; width: 30%; margin-right: 20px; text-align: center;">
+<p><img src="images/mol2.png" width="190"></p>
+</div>
+<ul>
+<li><p>“Impacts of Data and Models on Unsupervised Pre-training for
+Molecular Property Prediction”. <strong>E. Coda</strong>, G. Panapitiya,
+and E. Saldanha. <em>AI for Accelerated Materials Design-NeurIPS 2023
+Workshop</em> (2023).<a
+href="https://openreview.net/pdf?id=Ztku4ig4xM"><code>[paper]</code></a></p></li>
+<li><p>“Evaluating uncertainty-based active learning for accelerating
+the generalization of molecular property prediction”. T. Yin, G.
+Panapitiya, <strong>E. Coda</strong>, and E. Saldanha. <em>Journal of
+Cheminformatics</em> (2023). <a
+href="https://link.springer.com/article/10.1186/s13321-023-00753-5"><code>[paper]</code></a><a
+href="https://github.com/pnnl/UQALE"><code>[code]</code></a></p></li>
+<li><p>“Deep Learning for Spectral Filling in Radio Frequency
+Applications”. M. Setzler, <strong>E. Coda</strong>, J. Rounds, M. Vann,
+and M. Girard. <em>2022 Sensor Signal Processing for Defence
+Conference</em> (2022). <a
+href="https://arxiv.org/pdf/2204.01536"><code>[paper]</code></a></p></li>
+<li><p>“Differential Property Prediction: A Machine Learning Approach to
+Experimental Design in Advanced Manufacturing”. L. Truong, W. Choi, C.
+Wight, <strong>E. Coda</strong>, T. Emerson, K. Kappagantula, and H.
+Kvinge. <em>AAAI 2022 Workshop on AI for Design and Manufacturing</em>
+(2022). <a
+href="https://arxiv.org/pdf/2112.01687"><code>[paper]</code></a></p></li>
+<li><p>“CHOSEN: A synthesis of hydrometeorological data from 30
+intensively monitored watersheds across the US”. L. Zhang, E. Moges, J.
+Kirchner, <strong>E. Coda</strong>, T. Liu, A. Wymore, Z. Xu, L. Larsen.
+<em>Hydrological Processes</em> (2021). <a
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/hyp.14429"><code>[paper]</code></a>
+<a
+href="https://gitlab.com/esdl/chosen"><code>[code]</code></a></p></li>
+</ul>
+</div>
+<div style="clear: both;">
+
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
